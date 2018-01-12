@@ -1,0 +1,23 @@
+
+Raspberry Pi ADC module
+52Pi - 16 Bits I2C ADS1115 Module ADC 4 Channel for Raspberry Pi 3/2 Model B/B+
+http://wiki.52pi.com/index.php/RPI-ADS1115-ADC-Module_SKU:EP-0076
+
+"Modify /boot/config.txt file and add those parameters to enable ADC module's driver:
+sudo vim.tiny /boot/config.txt 
+   # device tree of raspberry pi 3b
+   device_tree=bcm2710-rpi-3-b.dtb
+   # enable i2c, change pi-config will change this line
+   dtparam=i2c_arm=on
+   #
+   dtoverlay=ads1015
+   "
+ results in I2C always busy problem: "UU" shown at address 48 even no hardware connected to GPIO.
+ Solution: remove the dtoverlay line.
+ Why?
+ https://www.raspberrypi.org/documentation/configuration/device-tree.md
+ 
+ 
+ Why some USB cables can only charge, but cannot transfer data?
+ It is a cheap charge-only USB cable!! Only two cables instead of 4. 
+ 
